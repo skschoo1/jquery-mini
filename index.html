@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+
+        <style type="text/css">
+        div {width:200px; height:100px; background-color:blue;}
+        </style>
+    </head>
+    <body>
+        <h2>迷你版jQuery</h2>
+        <div id="div1"></div>
+        <ul>
+            <li>刘备</li>
+            <li>关羽</li>
+            <li>张飞</li>
+        </ul>
+
+        <input type="button" value="触发" onclick="f1()" />
+
+
+		<script type="text/javascript" src="./jquery-mini.js"></script>
+
+        <script type="text/javascript">
+        function f1(){
+            //通过选择器获得元素节点对象
+            //console.log($("#div1"));
+            //console.log($("li"))
+
+            $("#div1").css('width','400px');
+            $("li").css('color','red');
+
+            $("#div1").attr('class','orange');
+            $("li").attr('role','hero');
+
+            var co = ['red','blue','green','gold','brown','pink','yellow']
+            $("li").each(function(m,n){
+                //console.log(m+'-'+n)
+                //m分别代表每个li的下标
+                //this 和 n 代表意思一致，分别代表每个li的dom对象
+                this.style.backgroundColor = co[Math.floor(Math.random()*7)];
+            });
+        }
+        </script>
+    </body>
+</html>
